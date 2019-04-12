@@ -16,7 +16,7 @@ CFLAGS := -g # -Wall
 
 #INC := $(shell find $(INCDIR) -maxdepth 1 -type d -exec echo -I {}  \;)
 
-PYTHON_VERSION="2.7"
+PYTHON_VERSION="3.6"
 
 PYINC := "-I/usr/include/python$(PYTHON_VERSION)"
 INC := $(PYINC)
@@ -43,7 +43,7 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 
 	
 $(LEGACY): $(TARGET)
-ifeq ($(PYTHON_VERSION),2.7)
+ifeq ($(PYTHON_VERSION),3.6)
 	@echo " Copying to legacy location for backward compatibility"
 	@mkdir -p $(dir $@)
 	cp $(TARGET) $(LEGACY)
